@@ -4,8 +4,8 @@ Here is a custom NextJS template already setup
 
 This has been created to make initial setup of any future NextJS applications consistent
 
--   [Github](https://github.com/lesi97/)
--   [Registry](https://npm.lesi.dev/)
+-   [Github](https://github.com/lesi97/next)
+-   [Registry](https://npm.lesi.dev/-/web/detail/@c_lesi/next)
 
 ## Installation
 
