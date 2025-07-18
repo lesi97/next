@@ -1,0 +1,20 @@
+{
+    "name": "@c_lesi/next",
+    "version": "1.0.0",
+    "description": "A Nextjs shell template",
+    "license": "ISC",
+    "author": "lesi97",
+    "type": "module",
+    "main": "index.js",
+    "bin": {
+        "@c_lesi/next": "index.js"
+    },
+    "scripts": {},
+    "files": [
+        "index.js",
+        "template"
+    ],
+    "dependencies": {
+        "inquirer": "^12.7.0"
+    }
+}
