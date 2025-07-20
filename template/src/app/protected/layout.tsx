@@ -1,8 +1,4 @@
-import { DeployButton } from '@/components/deploy-button';
-import { EnvVarWarning } from '@/components/env-var-warning';
-import { AuthButton } from '@/components/auth-button';
-import { ThemeSwitcher } from '@/components/theme-switcher';
-import Link from 'next/link';
+import { AuthButton, ThemeSwitcher } from '@/components/layout';
 
 export default function ProtectedLayout({
   children,
@@ -28,4 +24,3 @@ export default function ProtectedLayout({
     </main>
   );
 }
-

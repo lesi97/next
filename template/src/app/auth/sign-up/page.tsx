@@ -1,4 +1,4 @@
-import { SignUpForm } from '@/components/sign-up-form';
+import { SignUpForm } from '@/components/layout';
 
 export default function Page() {
   return (
@@ -9,4 +9,3 @@ export default function Page() {
     </div>
   );
 }
-

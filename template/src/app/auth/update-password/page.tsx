@@ -1,4 +1,4 @@
-import { UpdatePasswordForm } from '@/components/update-password-form';
+import { UpdatePasswordForm } from '@/components/layout';
 
 export default function Page() {
   return (
@@ -9,4 +9,3 @@ export default function Page() {
     </div>
   );
 }
-

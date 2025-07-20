@@ -2,16 +2,16 @@
 
 import { cn } from '@/utils';
 import { createClient } from '@/lib/supabase/client';
-import { Button } from '@/components/ui/button';
 import {
+  Button,
+  Input,
+  Label,
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+} from '@/components/ui';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -102,4 +102,3 @@ export function ForgotPasswordForm({
     </div>
   );
 }
-

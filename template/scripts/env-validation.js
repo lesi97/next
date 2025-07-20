@@ -12,6 +12,9 @@ const envSchema = z.object({
   NEXT_PUBLIC_SUPABASE_ANON_KEY: z
     .string({ required_error: missingMessage })
     .min(1, { message: missingMessage }),
+  VERCEL_URL: z
+    .string({ required_error: missingMessage })
+    .min(1, { message: missingMessage }),
 });
 
 const ansiText = {

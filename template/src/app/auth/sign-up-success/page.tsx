@@ -4,7 +4,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
+} from '@/components/ui';
 
 export default function Page() {
   return (
@@ -30,4 +30,3 @@ export default function Page() {
     </div>
   );
 }
-

@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui';
 
 export default async function Page({
   searchParams,
@@ -34,4 +34,3 @@ export default async function Page({
     </div>
   );
 }
-
