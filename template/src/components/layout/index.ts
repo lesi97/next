@@ -1,7 +1,5 @@
 export { AuthButton } from './auth-button';
-
 export { LogoutButton } from './logout-button';
-
 export { ThemeSwitcher } from './theme-switcher';
 export { SignUpForm } from './sign-up-form';
 export { LoginForm } from './login-form';

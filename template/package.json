@@ -1,4 +1,8 @@
 {
+  "name": "Nextjs Template",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
