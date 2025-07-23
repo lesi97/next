@@ -1,6 +1,6 @@
 'use client';
 
-import { createClient } from '@/lib/supabase/client';
+import { createClient } from '@/server/supabase';
 import { Button } from '@/components/ui';
 import { useRouter } from 'next/navigation';
 

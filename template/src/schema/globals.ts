@@ -1,3 +1,5 @@
+import { z } from 'zod';
+
 export const genericErrorRequired = 'This field is required';
 export const genericErrorSelectAnOption = 'Please select an option';
 
@@ -58,6 +60,7 @@ type BaseConfig = {
   autoComplete?: AutoCompleteType;
   dependantKey?: string;
   dependantValue?: string | number | boolean;
+  optional?: boolean;
 };
 
 interface OptionsConfig extends BaseConfig {
@@ -71,3 +74,15 @@ interface TextConfig extends BaseConfig {
 }
 
 export type Config = Record<string, OptionsConfig | TextConfig>;
+
+type ZodTypeFromField<C> = C extends { validate: 'email'; optional: true }
+  ? z.ZodOptional<z.ZodString>
+  : C extends { validate: 'email' }
+    ? z.ZodString
+    : C extends { optional: true }
+      ? z.ZodOptional<z.ZodString>
+      : z.ZodString;
+
+export type SchemaFromConfig<T extends Record<string, any>> = {
+  [K in keyof T]: ZodTypeFromField<T[K]>;
+};

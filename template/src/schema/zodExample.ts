@@ -6,8 +6,9 @@ import {
 import { generateForm } from '@/utils/generateForm';
 
 import { generateSchema } from '@/utils';
+import z from 'zod';
 
-const userConfig = {
+const formConfig = {
   firstName: {
     label: 'First Name',
     type: 'text',
@@ -50,7 +51,16 @@ const userConfig = {
   },
 } as const satisfies Config;
 
-export type ConfigKeys = keyof typeof userConfig;
-export const schema = generateSchema(userConfig as unknown as Config);
-export const { form: ConfigForm, initialState: ConfigInitialState } =
-  generateForm(userConfig);
+type ConfigKeys = keyof typeof formConfig;
+const ConfigSchema = generateSchema(formConfig);
+type ConfigSchemaType = z.infer<typeof ConfigSchema>;
+const { form: ConfigForm, initialState: ConfigInitialState } =
+  generateForm(formConfig);
+
+export {
+  type ConfigKeys,
+  type ConfigSchemaType,
+  ConfigForm,
+  ConfigInitialState,
+  ConfigSchema,
+};

@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/utils';
-import { createClient } from '@/lib/supabase/client';
+import { createClient } from '@/server/supabase';
 import {
   Button,
   Input,

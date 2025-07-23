@@ -1,16 +1,24 @@
-import { redirect } from 'next/navigation';
+'use client';
 
-import { createSupabaseServer } from '@/lib/supabase/server';
+import { api } from '@/lib/trpc/api';
 import { InfoIcon } from 'lucide-react';
-import { FetchDataSteps } from '@/components/tutorial/fetch-data-steps';
+import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
-export default async function ProtectedPage() {
-  const supabase = await createSupabaseServer();
+export default function ProtectedPage() {
+  const router = useRouter();
+  const { data, isLoading, error } = api.getClaims.useQuery();
+  const createUser = api.createUser.useMutation();
+  const [email, setEmail] = useState('');
 
-  const { data, error } = await supabase.auth.getClaims();
-  if (error || !data?.claims) {
-    redirect('/auth/login');
-  }
+  useEffect(() => {
+    if (error) {
+      router.push('/auth/login');
+    }
+  }, [error, router]);
+
+  if (isLoading) return <div>Loading...</div>;
+  if (!data) return null;
 
   return (
     <div className='flex-1 w-full flex flex-col gap-12'>
@@ -23,9 +31,22 @@ export default async function ProtectedPage() {
       </div>
       <div className='flex flex-col gap-2 items-start'>
         <h2 className='font-bold text-2xl mb-4'>Your user details</h2>
-        <pre className='text-xs font-mono p-3 rounded border max-h-32 overflow-auto'>
+        <pre className='text-xs font-mono w-full p-3 rounded border max-h-32 overflow-auto'>
           {JSON.stringify(data.claims, null, 2)}
         </pre>
+      </div>
+      <div className='flex flex-col gap-4'>
+        <input
+          value={email}
+          placeholder='New User Email'
+          onChange={(e) => setEmail(e.target.value)}
+          className='bg-primary rounded px-4 py-2 text-primary-foreground'
+        />
+        <button
+          className='bg-primary text-primary-foreground px-4 py-2 w-fit rounded self-end'
+          onClick={() => createUser.mutate({ email })}>
+          Create User
+        </button>
       </div>
     </div>
   );

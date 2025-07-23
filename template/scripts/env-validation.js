@@ -6,6 +6,9 @@ const envSchema = z.object({
   SUPABASE_PROJECT_ID: z
     .string({ required_error: missingMessage })
     .min(1, { message: missingMessage }),
+  SUPABASE_SERVICE_ROLE_KEY: z
+    .string({ required_error: missingMessage })
+    .min(1, { message: missingMessage }),
   NEXT_PUBLIC_SUPABASE_URL: z
     .string({ required_error: missingMessage })
     .min(1, { message: missingMessage }),

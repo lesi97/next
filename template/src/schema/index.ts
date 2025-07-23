@@ -4,4 +4,7 @@ export {
   genericErrorSelectAnOption,
   type AutoCompleteType,
   type Config,
+  type SchemaFromConfig,
 } from './globals';
+
+export { CreateUserSchema } from './createUser';
