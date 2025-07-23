@@ -1,4 +1,4 @@
-import { Config } from '@/schema';
+import { AutoCompleteType, Config } from '@/schema';
 
 export function generateForm<K>(config: Config) {
   const form = Object.entries(config).map(([key, obj]) => {
@@ -11,15 +11,16 @@ export function generateForm<K>(config: Config) {
         ? (obj.dependantValue as K)
         : (null as unknown as K);
     return {
-      label: config.label,
+      label: obj.label,
       id: key,
-      className: 'className' in config ? config.className : '',
-      type: config.type,
+      className: 'className' in obj ? obj.className : '',
+      type: obj.type,
       dataKey: key as K,
       options: typedOptions,
       dependantKey: typedDependantKey,
       dependantValue: typedDependantValue,
-      autoComplete: obj.autoComplete || '',
+      autoComplete:
+        (obj.autoComplete as AutoCompleteType) || ('' as AutoCompleteType),
     };
   });
 

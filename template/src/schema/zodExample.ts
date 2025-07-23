@@ -55,7 +55,7 @@ type ConfigKeys = keyof typeof formConfig;
 const ConfigSchema = generateSchema(formConfig);
 type ConfigSchemaType = z.infer<typeof ConfigSchema>;
 const { form: ConfigForm, initialState: ConfigInitialState } =
-  generateForm(formConfig);
+  generateForm<ConfigKeys>(formConfig);
 
 export {
   type ConfigKeys,

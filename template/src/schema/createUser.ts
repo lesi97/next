@@ -24,7 +24,7 @@ type CreateUserKeys = keyof typeof userConfig;
 const CreateUserSchema = generateSchema(userConfig);
 type CreateUserSchemaType = z.infer<typeof CreateUserSchema>;
 const { form: CreateUserForm, initialState: CreateUserInitialState } =
-  generateForm(userConfig);
+  generateForm<CreateUserKeys>(userConfig);
 
 export {
   type CreateUserKeys,
